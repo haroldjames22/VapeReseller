@@ -21,3 +21,17 @@ JFileChooser fileChooser = new JFileChooser();
                         System.out.println("File Error!");
                     }
                 }
+‐----------------------------------------
+
+public int FileExistenceChecker(String path){
+        File file = new File(path);
+        String fileName = file.getName();
+        
+        Path filePath = Paths.get("src/userimages", fileName);
+        boolean fileExists = Files.exists(filePath);
+        
+        if (fileExists) {
+            return 1;
+        } else {
+            return 0;
+        }

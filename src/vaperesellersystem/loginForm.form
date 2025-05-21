@@ -35,3 +35,20 @@ public int FileExistenceChecker(String path){
         } else {
             return 0;
         }
+//--------------------
+
+    public  ImageIcon ResizeImage(String ImagePath, byte[] pic, JLabel label) {
+    ImageIcon MyImage = null;
+        if(ImagePath !=null){
+            MyImage = new ImageIcon(ImagePath);
+        }else{
+            MyImage = new ImageIcon(pic);
+        }
+        
+    int newHeight = getHeightFromWidth(ImagePath, label.getWidth());
+
+    Image img = MyImage.getImage();
+    Image newImg = img.getScaledInstance(label.getWidth(), newHeight, Image.SCALE_SMOOTH);
+    ImageIcon image = new ImageIcon(newImg);
+    return image;
+}
